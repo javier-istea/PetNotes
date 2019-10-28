@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <EditTextPreference
+            android:defaultValue=" "
+            android:icon="@drawable/ic_pencil"
+            android:key="@string/preference_pet_name"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:summary="Ingresa el nombre de tu mascota!"
+            android:title="Nombre de tu mascota" />
+</PreferenceScreen>
