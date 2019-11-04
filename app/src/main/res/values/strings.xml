@@ -18,4 +18,6 @@
     <string name="app_icon_image_description">Icono de la aplicacion</string>
     <string name="preference_pet_name">edit_text_preference_pet_name</string>
     <string name="default_pet_name">Pepito</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_home">Home</string>
 </resources>
