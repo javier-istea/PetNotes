@@ -20,4 +20,5 @@
     <string name="default_pet_name">Pepito</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="title_home">Home</string>
+    <string name="title_activity_new_note">New Note</string>
 </resources>

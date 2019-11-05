@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() {
 
 
     private fun setupToolbar() {
-        toolbar = findViewById(R.id.toolbar)
+        toolbar = findViewById(R.id.tb_main)
         setSupportActionBar(toolbar)
     }
 
