@@ -21,4 +21,6 @@
     <string name="title_activity_main">MainActivity</string>
     <string name="title_home">Home</string>
     <string name="title_activity_new_note">New Note</string>
+    <string name="generic_failure_dialog_title">Something went wrong</string>
+    <string name="generic_failure_dialog_message">Please try again later.</string>
 </resources>
