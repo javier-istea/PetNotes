@@ -6,5 +6,12 @@ data class Note(
     var id: Int?,
     var title: String,
     var message: String,
-    var type: String
-) : Serializable
+    var type: Int
+) : Serializable{
+    companion object NoteTypes{
+        val VACCINE = 0
+        val VET_VISIT = 1
+        val BATH = 2
+        val HAIRCUT = 3
+    }
+}

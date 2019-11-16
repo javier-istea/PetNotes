@@ -11,7 +11,6 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
-
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
 
@@ -26,5 +25,14 @@
     <style name="FullscreenActionBarStyle" parent="Widget.AppCompat.ActionBar">
         <item name="android:background">@color/black_overlay</item>
     </style>
+
+    <style name="Collapsed">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="Expanded">
+        <item name="android:textColor">@color/transparent</item>
+    </style>
+
 
 </resources>

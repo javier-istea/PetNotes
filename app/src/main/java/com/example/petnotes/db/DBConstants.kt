@@ -4,7 +4,7 @@ class DBConstants {
 
     companion object {
         const val DB_NAME = "PetNotes"
-        const val DB_VERSION = 1
+        const val DB_VERSION = 2
         const val TABLE_NOTES = "Notes"
         const val ID = "Id"
         const val TITLE = "Title"

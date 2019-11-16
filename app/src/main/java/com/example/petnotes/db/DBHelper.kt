@@ -13,7 +13,7 @@ class DBHelper(context: Context) :
         db?.execSQL(
             "create table if not exists ${DBConstants.TABLE_NOTES}" +
                     " (${DBConstants.ID} integer primary key, ${DBConstants.TITLE} text, " +
-                    "${DBConstants.TYPE} text)" +
+                    "${DBConstants.TYPE} integer)" +
                     "${DBConstants.MESSAGE} text)"
         )
     }
@@ -46,7 +46,7 @@ class DBHelper(context: Context) :
                     id = cursor.getInt(cursor.getColumnIndex(DBConstants.ID)),
                     title = cursor.getString(cursor.getColumnIndex(DBConstants.TITLE)),
                     message = cursor.getString(cursor.getColumnIndex(DBConstants.MESSAGE)),
-                    type = cursor.getString(cursor.getColumnIndex(DBConstants.TYPE))
+                    type = cursor.getInt(cursor.getColumnIndex(DBConstants.TYPE))
                 )
                 notes.add(note)
                 cursor.moveToNext()
@@ -68,7 +68,7 @@ class DBHelper(context: Context) :
                     id = it.getInt(it.getColumnIndex(DBConstants.ID)),
                     title = it.getString(it.getColumnIndex(DBConstants.TITLE)),
                     message = it.getString(it.getColumnIndex(DBConstants.MESSAGE)),
-                    type = it.getString(it.getColumnIndex(DBConstants.TYPE))
+                    type = it.getInt(it.getColumnIndex(DBConstants.TYPE))
                 )
             }
         }

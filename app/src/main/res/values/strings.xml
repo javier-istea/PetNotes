@@ -23,4 +23,12 @@
     <string name="title_activity_new_note">New Note</string>
     <string name="generic_failure_dialog_title">Something went wrong</string>
     <string name="generic_failure_dialog_message">Please try again later.</string>
+    <string name="new_note_activity_title">Add a new note</string>
+    <string name="til_newNote_title_hint">Tittle</string>
+    <string name="tv_note_type_label">Note type</string>
+    <string name="til_newNote_noteContent_hint">Write down your note here...</string>
+    <string name="mb_newNote_saveButton_text">Save</string>
+    <string name="newNote_empty_title_message">Title can\'t be empty</string>
+    <string name="newNote_empty_note_content_message" >The note can\'t be empty</string>
+    <string name="main_title">%s\'s Notes</string>
 </resources>
