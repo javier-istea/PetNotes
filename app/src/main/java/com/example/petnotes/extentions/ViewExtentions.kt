@@ -5,13 +5,13 @@ import android.view.View
 /**
  * Sets "isEnabled" to false
  */
-fun View.disable(){
+fun View.disable() {
     isEnabled = false
 }
 
 /**
  * Sets "isEnabled" to true
  */
-fun View.enable(){
+fun View.enable() {
     isEnabled = true
 }

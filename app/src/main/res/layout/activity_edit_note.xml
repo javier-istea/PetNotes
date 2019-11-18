@@ -8,13 +8,13 @@
         android:layout_height="match_parent">
 
     <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/ab_newNote"
+            android:id="@+id/ab_editNote"
 
             android:layout_width="match_parent"
             android:layout_height="192dp">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
-                android:id="@+id/ctl_newNote"
+                android:id="@+id/ctl_editNote"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:collapsedTitleTextAppearance="@style/Collapsed"
@@ -24,23 +24,23 @@
                 app:layout_scrollFlags="scroll|exitUntilCollapsed"
                 app:layout_scrollInterpolator="@android:anim/decelerate_interpolator"
                 app:scrimAnimationDuration="200"
-                app:title="@string/new_note_activity_title"
-                app:toolbarId="@+id/tb_newNote">
+                app:title="@string/edit_note_activity_title"
+                app:toolbarId="@+id/tb_editNote">
 
             <TextView
-                    android:id="@+id/tv_newNote_appBarText"
+                    android:id="@+id/tv_editNote_appBarText"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:fontFamily="sans-serif-medium"
                     android:gravity="center_vertical"
-                    android:text="@string/new_note_activity_title"
+                    android:text="@string/edit_note_activity_title"
                     android:textAlignment="center"
                     android:textColor="@color/white"
                     android:textSize="36sp"
                     app:layout_collapseMode="parallax" />
 
             <androidx.appcompat.widget.Toolbar
-                    android:id="@+id/tb_newNote"
+                    android:id="@+id/tb_editNote"
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
                     app:titleTextColor="@color/white" />
@@ -58,28 +58,27 @@
                 android:layout_margin="16dp"
                 android:orientation="vertical"
                 android:showDividers="middle"
-                tools:context=".NewNoteActivity">
+                tools:context=".editNoteActivity">
 
 
             <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/til_newNote_title"
+                    android:id="@+id/til_editNote_title"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/form_divider"
-                    android:hint="@string/til_newNote_title_hint"
+                    android:hint="@string/til_editNote_title_hint"
                     app:counterEnabled="true"
                     app:counterMaxLength="40">
 
                 <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/tiet_newNote_title"
+                        android:id="@+id/tiet_editNote_title"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:imeOptions="actionNext"
                         android:inputType="text"
                         android:maxLines="1"
-                        android:nextFocusDown="@id/tiet_newNote_noteContent"
-                        android:singleLine="true" />
+                        android:nextFocusDown="@id/tiet_editNote_noteContent" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -93,41 +92,39 @@
                     android:textSize="18sp" />
 
             <RadioGroup
-                    android:id="@+id/rg_newNote_note_type"
+                    android:id="@+id/rg_editNote_note_type"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:paddingBottom="16dp" />
 
             <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/til_newNote_noteContent"
+                    android:id="@+id/til_editNote_noteContent"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/form_divider"
-                    android:hint="@string/til_newNote_noteContent_hint"
+                    android:hint="@string/til_editNote_noteContent_hint"
                     app:counterEnabled="true"
                     app:counterMaxLength="500">
 
                 <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/tiet_newNote_noteContent"
+                        android:id="@+id/tiet_editNote_noteContent"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:inputType="textMultiLine"
+                        android:imeOptions="actionDone"
                         android:paddingTop="16dp"
-                        android:paddingBottom="16dp"
-                        android:singleLine="false" />
+                        android:paddingBottom="16dp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.button.MaterialButton
-                    android:id="@+id/mb_newNote_saveButton"
+                    android:id="@+id/mb_editNote_saveButton"
                     style="@style/Widget.MaterialComponents.Button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/form_divider"
-                    android:singleLine="false"
-                    android:text="@string/mb_newNote_saveButton_text"
+                    android:text="@string/mb_editNote_saveButton_text"
                     android:textAppearance="@style/Widget.MaterialComponents.Button"
                     android:textSize="18sp" />
 

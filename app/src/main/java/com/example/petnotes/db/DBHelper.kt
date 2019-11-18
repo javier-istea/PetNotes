@@ -13,7 +13,7 @@ class DBHelper(context: Context) :
         db?.execSQL(
             "create table if not exists ${DBConstants.TABLE_NOTES}" +
                     " (${DBConstants.ID} integer primary key, ${DBConstants.TITLE} text, " +
-                    "${DBConstants.TYPE} integer)" +
+                    "${DBConstants.TYPE} integer, " +
                     "${DBConstants.MESSAGE} text)"
         )
     }

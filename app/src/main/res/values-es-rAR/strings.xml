@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pet Notes</string>
+    <string name="about_me_title">Acerca de mi</string>
+    <string name="action_settings">Ajustes</string>
+    <string name="cancel">Cancelar</string>
+    <string name="delete">Eliminar</string>
+    <string name="delete_note_confirmation_dialog_message">"¿Estás seguro? "</string>
+    <string name="delete_note_confirmation_dialog_title">Eliminar</string>
+    <string name="edit_note_activity_title">Editar nota</string>
+    <string name="empty_note_content_message">La nota no puede estar vacía.</string>
+    <string name="empty_title_message">El titulo no puede estar vacío.</string>
+    <string name="generic_failure_dialog_message">"Por favor, inténtelo de nuevo más tarde. "</string>
+    <string name="generic_failure_dialog_title">Algo salió mal</string>
+    <string name="main_title">Notas de %s</string>
+    <string name="title_activity_main">Notas de tu mascota</string>
+    <string name="mb_editNote_saveButton_text">Guardar</string>
+    <string name="mb_newNote_saveButton_text">Guardar</string>
+    <string name="new_note_activity_title">Agregar una nota</string>
+    <string name="til_newNote_noteContent_hint">Escriba su nota aquí…</string>
+    <string name="til_newNote_title_hint">"Escriba el titulo aquí… "</string>
+    <string name="til_editNote_noteContent_hint">Nota</string>
+    <string name="til_editNote_title_hint">Titulo</string>
+    <string name="title_activity_new_note">Nueva nota</string>
+    <string name="title_activity_settings">Ajustes</string>
+    <string name="tv_note_type_label">Tipo de nota</string>
+    <string name="note_type_bath">Baño</string>
+    <string name="note_type_haircut">Corte de pelo</string>
+    <string name="note_type_other">Otros</string>
+    <string name="note_type_vaccine">Vacuna</string>
+    <string name="mb_delete">ELIMINAR</string>
+    <string name="mb_edit">EDITAR</string>
+</resources>

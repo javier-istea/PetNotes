@@ -7,11 +7,11 @@ data class Note(
     var title: String,
     var message: String,
     var type: Int
-) : Serializable{
-    companion object NoteTypes{
-        val VACCINE = 0
-        val VET_VISIT = 1
-        val BATH = 2
-        val HAIRCUT = 3
+) : Serializable {
+    companion object NoteTypes {
+        const val VACCINE = 0
+        const val OTHER = 1
+        const val BATH = 2
+        const val HAIRCUT = 3
     }
 }

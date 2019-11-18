@@ -1,34 +1,35 @@
 <resources>
     <string name="app_name">Pet Notes</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
-
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
-    <string name="title_activity_home">@string/app_name</string>
     <string name="title_activity_settings">Settings</string>
-    <string name="attachment_title">Download incoming attachments</string>
-    <string name="attachment_summary_on">Automatically download attachments for incoming emails</string>
-    <string name="attachment_summary_off">Only download attachments when manually requested</string>
     <string name="about_me_title">About me</string>
-    <string name="about_me_message">Lorem ipsum dolor sit amet consectetur adipiscing elit scelerisque ultricies, ridiculus nulla a sollicitudin id pharetra tincidunt nullam ligula et, venenatis nisi curae taciti integer sodales condimentum conubia. Pharetra posuere porttitor at quisque maecenas sapien integer class habitant curabitur erat, interdum ad mollis proin ultrices montes fermentum dictumst ornare molestie, facilisi sociis fames congue aliquam lectus non pretium lacinia elementum. Turpis non magna hac porta sollicitudin maecenas nunc eget rutrum laoreet tellus, lacinia quis nullam aliquet mi fermentum ante vel semper mus, conubia per bibendum risus varius natoque euismod massa sociosqu suspendisse.</string>
-    <string name="ok">OK</string>
-    <string name="app_icon_image_description">Icono de la aplicacion</string>
-    <string name="preference_pet_name">edit_text_preference_pet_name</string>
-    <string name="default_pet_name">Pepito</string>
-    <string name="title_activity_main">MainActivity</string>
-    <string name="title_home">Home</string>
+    <string name="about_me_message" translatable="false">Lorem ipsum dolor sit amet consectetur adipiscing elit scelerisque ultricies, ridiculus nulla a sollicitudin id pharetra tincidunt nullam ligula et, venenatis nisi curae taciti integer sodales condimentum conubia. Pharetra posuere porttitor at quisque maecenas sapien integer class habitant curabitur erat, interdum ad mollis proin ultrices montes fermentum dictumst ornare molestie, facilisi sociis fames congue aliquam lectus non pretium lacinia elementum. Turpis non magna hac porta sollicitudin maecenas nunc eget rutrum laoreet tellus, lacinia quis nullam aliquet mi fermentum ante vel semper mus, conubia per bibendum risus varius natoque euismod massa sociosqu suspendisse.</string>
+    <string name="ok" translatable="false">OK</string>
+    <string name="preference_pet_name" translatable="false">edit_text_preference_pet_name</string>
+    <string name="title_activity_main">Your Pet\'s Notes</string>
     <string name="title_activity_new_note">New Note</string>
     <string name="generic_failure_dialog_title">Something went wrong</string>
     <string name="generic_failure_dialog_message">Please try again later.</string>
     <string name="new_note_activity_title">Add a new note</string>
-    <string name="til_newNote_title_hint">Tittle</string>
     <string name="tv_note_type_label">Note type</string>
-    <string name="til_newNote_noteContent_hint">Write down your note here...</string>
+    <string name="til_newNote_noteContent_hint">Write down your note here…</string>
     <string name="mb_newNote_saveButton_text">Save</string>
-    <string name="newNote_empty_title_message">Title can\'t be empty</string>
-    <string name="newNote_empty_note_content_message" >The note can\'t be empty</string>
+    <string name="empty_title_message">Title can\'t be empty</string>
+    <string name="empty_note_content_message">The note can\'t be empty</string>
     <string name="main_title">%s\'s Notes</string>
+    <string name="edit_note_activity_title">Edit Note</string>
+    <string name="til_editNote_title_hint">Tittle</string>
+    <string name="mb_editNote_saveButton_text">Save</string>
+    <string name="delete_note_confirmation_dialog_title">Delete</string>
+    <string name="delete_note_confirmation_dialog_message">Are you sure?</string>
+    <string name="delete">Delete</string>
+    <string name="cancel">Cancel</string>
+    <string name="til_editNote_noteContent_hint">Note</string>
+    <string name="til_newNote_title_hint">Write down the title here…</string>
+    <string name="note_type_vaccine">Vaccine</string>
+    <string name="note_type_other">Other</string>
+    <string name="note_type_bath">Bath</string>
+    <string name="note_type_haircut">Haircut</string>
+    <string name="mb_delete">DELETE</string>
+    <string name="mb_edit">EDIT</string>
 </resources>

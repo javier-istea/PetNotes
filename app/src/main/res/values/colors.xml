@@ -2,14 +2,15 @@
 <resources>
     <color name="primaryColor">#6200ea</color>
     <color name="primaryLightColor">#9d46ff</color>
-    <color name="primaryDarkColor">#0a00b6</color>
+    <color name="primaryDarkColor">#4600B6</color>
     <color name="secondaryColor">#1de9b6</color>
     <color name="secondaryLightColor">#6effe8</color>
     <color name="secondaryDarkColor">#00b686</color>
     <color name="primaryTextColor">#ffffff</color>
     <color name="secondaryTextColor">#000000</color>
+    <color name="tertiaryTextColor">#202020</color>
+    <color name="gray">#9B9B9B</color>
     <color name="black_overlay">#66000000</color>
-    <color name="gray_overlay">#30000000</color>
     <color name="white">#FFF</color>
     <color name="transparent">#00000000</color>
 </resources>

@@ -1,9 +1,9 @@
 package com.example.petnotes
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import androidx.appcompat.app.AppCompatActivity
 
 class SplashActivity : AppCompatActivity() {
 
@@ -17,7 +17,7 @@ class SplashActivity : AppCompatActivity() {
                 startActivity(intent)
                 finish()
             },
-            1500
+            3000
         )
 
     }
