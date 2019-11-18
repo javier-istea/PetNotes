@@ -1,7 +1,9 @@
 package com.example.petnotes
 
+import android.content.Context
 import android.os.AsyncTask
 import android.os.Bundle
+import android.view.inputmethod.InputMethodManager
 import android.widget.RadioButton
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -34,7 +36,9 @@ class NewNoteActivity : AppCompatActivity() {
 
     private fun setupListeners() {
         mb_newNote_saveButton.setOnClickListener {
-            it.requestFocus()
+            val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(it.windowToken, 0)
+            currentFocus?.clearFocus()
             if (validateFields()) {
                 it.disable()
                 InsertNoteAsync().execute(getValuesFromFields())
@@ -43,6 +47,11 @@ class NewNoteActivity : AppCompatActivity() {
         tiet_newNote_title.setOnFocusChangeListener { _, hasFocus ->
             if (hasFocus) {
                 til_newNote_title.error = null
+            }
+        }
+        tiet_newNote_noteContent.setOnFocusChangeListener { _, hasFocus ->
+            if (hasFocus) {
+                til_newNote_noteContent.error = null
             }
         }
     }
@@ -63,7 +72,7 @@ class NewNoteActivity : AppCompatActivity() {
     }
 
     private fun validateFields(): Boolean {
-        return validateTitleField() && validateNoteContentField()
+        return validateTitleField() and validateNoteContentField()
     }
 
     private fun validateNoteContentField(): Boolean {

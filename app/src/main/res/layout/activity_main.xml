@@ -34,6 +34,34 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/abl_main" />
 
+    <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lav_no_notes_animation"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toTopOf="@+id/tv_no_notes"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/abl_main"
+            app:lottie_autoPlay="true"
+            app:lottie_fileName="waiting_dog_animation.json"
+            app:lottie_loop="true" />
+
+
+    <TextView
+            android:id="@+id/tv_no_notes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/no_notes_message"
+            android:textAlignment="center"
+            android:textColor="@color/gray"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toTopOf="@+id/fab_main_new_note"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab_main_new_note"
             android:layout_width="wrap_content"

@@ -1,13 +1,16 @@
 package com.example.petnotes
 
+import android.content.Context
 import android.os.AsyncTask
 import android.os.Bundle
+import android.view.inputmethod.InputMethodManager
 import android.widget.RadioButton
 import androidx.appcompat.app.AppCompatActivity
 import com.example.petnotes.db.DBHelper
 import com.example.petnotes.extentions.disable
 import com.example.petnotes.model.Note
 import kotlinx.android.synthetic.main.activity_edit_note.*
+
 
 class EditNoteActivity : AppCompatActivity() {
     companion object IntentExtraKeys {
@@ -39,7 +42,9 @@ class EditNoteActivity : AppCompatActivity() {
 
     private fun setupListeners() {
         mb_editNote_saveButton.setOnClickListener {
-            it.requestFocus()
+            val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(it.windowToken, 0)
+            currentFocus?.clearFocus()
             if (validateFields()) {
                 it.disable()
                 UpdateNoteAsync().execute(getValuesFromFields())
@@ -48,6 +53,11 @@ class EditNoteActivity : AppCompatActivity() {
         tiet_editNote_title.setOnFocusChangeListener { _, hasFocus ->
             if (hasFocus) {
                 til_editNote_title.error = null
+            }
+        }
+        tiet_editNote_noteContent.setOnFocusChangeListener { _, hasFocus ->
+            if (hasFocus) {
+                til_editNote_noteContent.error = null
             }
         }
     }
@@ -68,7 +78,7 @@ class EditNoteActivity : AppCompatActivity() {
     }
 
     private fun validateFields(): Boolean {
-        return validateTitleField() && validateNoteContentField()
+        return validateTitleField() and validateNoteContentField()
     }
 
     private fun validateNoteContentField(): Boolean {

@@ -6,6 +6,7 @@ import android.os.AsyncTask
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -15,8 +16,32 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.petnotes.db.DBHelper
 import com.example.petnotes.model.Note
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), ItemInteractionListener {
+
+    private lateinit var floatingActionButton: FloatingActionButton
+    private lateinit var recyclerView: RecyclerView
+
+    private lateinit var toolbar: Toolbar
+
+    private lateinit var prefs: SharedPreferences
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        prefs = PreferenceManager.getDefaultSharedPreferences(this)
+        setContentView(R.layout.activity_main)
+        setupToolbar()
+        setupFloatingActionButton()
+        setupRecycler()
+        GetAllNotes().execute()
+    }
+
+    private fun setupRecycler() {
+        recyclerView = findViewById(R.id.rv_main)
+        recyclerView.setHasFixedSize(true)
+        recyclerView.layoutManager = LinearLayoutManager(this)
+    }
+
     override fun onDeleteButtonCLick(id: Int?) {
         AlertDialog.Builder(this)
             .setTitle(R.string.delete_note_confirmation_dialog_title)
@@ -39,28 +64,6 @@ class MainActivity : AppCompatActivity(), ItemInteractionListener {
         val intent = Intent(this, EditNoteActivity::class.java)
         intent.putExtra(EditNoteActivity.NOTE_ID, id)
         startActivity(intent)
-    }
-
-    private lateinit var floatingActionButton: FloatingActionButton
-    private lateinit var recyclerView: RecyclerView
-
-    private lateinit var toolbar: Toolbar
-
-    private lateinit var prefs: SharedPreferences
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        prefs = PreferenceManager.getDefaultSharedPreferences(this)
-        setContentView(R.layout.activity_main)
-        setupToolbar()
-        setupFloatingActionButton()
-        setupRecycler()
-        GetAllNotes().execute()
-    }
-
-    private fun setupRecycler() {
-        recyclerView = findViewById(R.id.rv_main)
-        recyclerView.setHasFixedSize(true)
-        recyclerView.layoutManager = LinearLayoutManager(this)
     }
 
     private fun setupFloatingActionButton() {
@@ -129,6 +132,13 @@ class MainActivity : AppCompatActivity(), ItemInteractionListener {
     }
 
     private fun onNotesRetrieved(result: List<Note>) {
+        if (result.isEmpty()) {
+            lav_no_notes_animation.visibility = View.VISIBLE
+            tv_no_notes.visibility = View.VISIBLE
+        } else {
+            lav_no_notes_animation.visibility = View.GONE
+            tv_no_notes.visibility = View.GONE
+        }
         recyclerView.adapter = MainRecyclerAdapter(result, this)
     }
 
