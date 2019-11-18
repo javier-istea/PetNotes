@@ -10,8 +10,8 @@ data class Note(
 ) : Serializable {
     companion object NoteTypes {
         const val VACCINE = 0
-        const val OTHER = 1
-        const val BATH = 2
-        const val HAIRCUT = 3
+        const val BATH = 1
+        const val HAIRCUT = 2
+        const val OTHER = 3
     }
 }
