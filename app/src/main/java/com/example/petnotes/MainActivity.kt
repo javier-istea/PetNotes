@@ -95,10 +95,14 @@ class MainActivity : AppCompatActivity(), ItemInteractionListener {
 
     private fun setupToolbar() {
         toolbar = findViewById(R.id.tb_main)
+        updateToolbarTitle()
+        setSupportActionBar(toolbar)
+    }
+
+    private fun updateToolbarTitle() {
         val petName = prefs.getString(getString(R.string.preference_pet_name), null)
         if (!petName.isNullOrBlank())
             toolbar.title = String.format(getString(R.string.main_title), petName)
-        setSupportActionBar(toolbar)
     }
 
     inner class GetAllNotes : AsyncTask<Unit, Unit, List<Note>>() {
@@ -144,6 +148,7 @@ class MainActivity : AppCompatActivity(), ItemInteractionListener {
 
     override fun onResume() {
         super.onResume()
+        updateToolbarTitle()
         GetAllNotes().execute()
     }
 }
