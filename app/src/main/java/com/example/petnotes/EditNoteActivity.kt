@@ -1,5 +1,6 @@
 package com.example.petnotes
 
+import android.app.DatePickerDialog
 import android.content.Context
 import android.os.AsyncTask
 import android.os.Bundle
@@ -10,6 +11,7 @@ import com.example.petnotes.db.DBHelper
 import com.example.petnotes.extentions.disable
 import com.example.petnotes.model.Note
 import kotlinx.android.synthetic.main.activity_edit_note.*
+import java.util.*
 
 
 class EditNoteActivity : AppCompatActivity() {
@@ -18,6 +20,7 @@ class EditNoteActivity : AppCompatActivity() {
     }
 
     private lateinit var note: Note
+    private var reminderDate: Calendar? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,6 +53,9 @@ class EditNoteActivity : AppCompatActivity() {
                 UpdateNoteAsync().execute(getValuesFromFields())
             }
         }
+        tiet_editNote_date.setOnClickListener {
+            showDatePickerDialog(reminderDate ?: Calendar.getInstance())
+        }
         tiet_editNote_title.setOnFocusChangeListener { _, hasFocus ->
             if (hasFocus) {
                 til_editNote_title.error = null
@@ -60,6 +66,20 @@ class EditNoteActivity : AppCompatActivity() {
                 til_editNote_noteContent.error = null
             }
         }
+    }
+
+    private fun showDatePickerDialog(calendar: Calendar) {
+        DatePickerDialog(
+            this,
+            R.style.Theme_MaterialComponents_Light_Dialog_MinWidth,
+            DatePickerDialog.OnDateSetListener { _, year, month, day ->
+                reminderDate = Calendar.getInstance().apply { this.set(year, month, day) }
+                tiet_editNote_date.setText((String.format("%s/%s/%s", day, month, year)))
+            },
+            calendar.get(Calendar.YEAR),
+            calendar.get(Calendar.MONTH),
+            calendar.get(Calendar.DAY_OF_MONTH)
+        ).show()
     }
 
     private fun getValuesFromFields(): Note {
@@ -73,7 +93,9 @@ class EditNoteActivity : AppCompatActivity() {
                 2 -> Note.HAIRCUT
                 3 -> Note.OTHER
                 else -> throw Exception()
-            }
+            },
+            creationDate = note.creationDate,
+            reminderDate = reminderDate?.timeInMillis
         )
     }
 
@@ -127,6 +149,11 @@ class EditNoteActivity : AppCompatActivity() {
 
     private fun onNoteRetrieved(note: Note) {
         this.note = note
+        note.reminderDate?.let {
+            val calendar = Calendar.getInstance()
+            calendar.timeInMillis = it
+            this.reminderDate = calendar
+        }
         updateFields(note)
     }
 
@@ -135,6 +162,20 @@ class EditNoteActivity : AppCompatActivity() {
         tiet_editNote_noteContent.setText(note.message)
         rg_editNote_note_type.clearCheck()
         (rg_editNote_note_type.getChildAt(note.type) as RadioButton).isChecked = true
+        note.reminderDate?.let {
+            if (it == 0L) {
+                val calendar = Calendar.getInstance()
+                calendar.timeInMillis = it
+                tiet_editNote_date.setText(
+                    String.format(
+                        "%s/%s/%s",
+                        calendar.get(Calendar.DAY_OF_MONTH),
+                        calendar.get(Calendar.MONTH),
+                        calendar.get(Calendar.YEAR)
+                    )
+                )
+            }
+        }
     }
 
     private fun onNoteUpdated() {

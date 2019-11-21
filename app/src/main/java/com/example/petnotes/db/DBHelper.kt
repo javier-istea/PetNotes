@@ -14,6 +14,8 @@ class DBHelper(context: Context) :
             "create table if not exists ${DBConstants.TABLE_NOTES}" +
                     " (${DBConstants.ID} integer primary key, ${DBConstants.TITLE} text, " +
                     "${DBConstants.TYPE} integer, " +
+                    "${DBConstants.CREATION_DATE} integer, " +
+                    "${DBConstants.REMINDER_DATE} integer, " +
                     "${DBConstants.MESSAGE} text)"
         )
     }
@@ -31,6 +33,8 @@ class DBHelper(context: Context) :
         contentValues.put(DBConstants.TITLE, note.title)
         contentValues.put(DBConstants.MESSAGE, note.message)
         contentValues.put(DBConstants.TYPE, note.type)
+        contentValues.put(DBConstants.CREATION_DATE, note.creationDate)
+        contentValues.put(DBConstants.REMINDER_DATE, note.reminderDate)
         val result = db.insert(DBConstants.TABLE_NOTES, null, contentValues)
         return result > 0
     }
@@ -46,7 +50,9 @@ class DBHelper(context: Context) :
                     id = cursor.getInt(cursor.getColumnIndex(DBConstants.ID)),
                     title = cursor.getString(cursor.getColumnIndex(DBConstants.TITLE)),
                     message = cursor.getString(cursor.getColumnIndex(DBConstants.MESSAGE)),
-                    type = cursor.getInt(cursor.getColumnIndex(DBConstants.TYPE))
+                    type = cursor.getInt(cursor.getColumnIndex(DBConstants.TYPE)),
+                    creationDate = cursor.getLong(cursor.getColumnIndex(DBConstants.CREATION_DATE)),
+                    reminderDate = cursor.getLong(cursor.getColumnIndex(DBConstants.REMINDER_DATE))
                 )
                 notes.add(note)
                 cursor.moveToNext()
@@ -68,7 +74,9 @@ class DBHelper(context: Context) :
                     id = it.getInt(it.getColumnIndex(DBConstants.ID)),
                     title = it.getString(it.getColumnIndex(DBConstants.TITLE)),
                     message = it.getString(it.getColumnIndex(DBConstants.MESSAGE)),
-                    type = it.getInt(it.getColumnIndex(DBConstants.TYPE))
+                    type = it.getInt(it.getColumnIndex(DBConstants.TYPE)),
+                    creationDate = it.getLong(it.getColumnIndex(DBConstants.CREATION_DATE)),
+                    reminderDate = it.getLong(it.getColumnIndex(DBConstants.REMINDER_DATE))
                 )
             }
         }
@@ -82,6 +90,8 @@ class DBHelper(context: Context) :
         contentValues.put(DBConstants.TITLE, note.title)
         contentValues.put(DBConstants.MESSAGE, note.message)
         contentValues.put(DBConstants.TYPE, note.type)
+        contentValues.put(DBConstants.CREATION_DATE, note.creationDate)
+        contentValues.put(DBConstants.REMINDER_DATE, note.reminderDate)
 
         return db.update(
             DBConstants.TABLE_NOTES,

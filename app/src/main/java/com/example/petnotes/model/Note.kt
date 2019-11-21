@@ -6,7 +6,9 @@ data class Note(
     var id: Int?,
     var title: String,
     var message: String,
-    var type: Int
+    var type: Int,
+    var creationDate: Long,
+    var reminderDate: Long?
 ) : Serializable {
     companion object NoteTypes {
         const val VACCINE = 0

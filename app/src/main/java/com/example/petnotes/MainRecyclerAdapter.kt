@@ -5,11 +5,13 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.petnotes.model.Note
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.card.MaterialCardView
+import java.util.*
 
 class MainRecyclerAdapter(private var notes: List<Note>, private var context: Context) :
     RecyclerView.Adapter<MainRecyclerAdapter.ViewHolder>() {
@@ -34,11 +36,23 @@ class MainRecyclerAdapter(private var notes: List<Note>, private var context: Co
         private val deleteButton = view.findViewById(R.id.mb_delete) as MaterialButton
         private val editButton = view.findViewById(R.id.mb_edit) as MaterialButton
         private val card = view.findViewById(R.id.mcv_container) as MaterialCardView
-
+        private val notificationIcon = view.findViewById(R.id.iv_notification) as ImageView
+        private val creationDate = view.findViewById(R.id.tv_created_on) as TextView
         private lateinit var listener: ItemInteractionListener
         fun bind(note: Note, context: Context) {
             title.text = note.title
             noteContent.text = note.message
+            val calendar = Calendar.getInstance()
+            calendar.timeInMillis = note.creationDate
+            creationDate.text = (String.format(
+                "%s/%s/%s",
+                calendar.get(Calendar.DAY_OF_MONTH),
+                calendar.get(Calendar.MONTH),
+                calendar.get(Calendar.YEAR)
+            ))
+            if (note.reminderDate == 0L) {
+                notificationIcon.visibility = View.VISIBLE
+            }
             type.text = context.resources.getStringArray(R.array.note_types)[note.type]
             listener = context as ItemInteractionListener
             editButton.setOnClickListener {
