@@ -69,7 +69,7 @@ class NewNoteActivity : AppCompatActivity() {
             R.style.Theme_MaterialComponents_Light_Dialog_MinWidth,
             DatePickerDialog.OnDateSetListener { view, year, month, day ->
                 reminderDate = Calendar.getInstance().apply { this.set(year, month, day) }
-                tiet_newNote_date.setText((String.format("%s/%s/%s", day, month, year)))
+                tiet_newNote_date.setText((String.format("%s/%s/%s", day, month + 1, year)))
             },
             calendar.get(Calendar.YEAR),
             calendar.get(Calendar.MONTH),
@@ -80,7 +80,7 @@ class NewNoteActivity : AppCompatActivity() {
     private fun getValuesFromFields(): Note {
         return Note(
             id = null,
-            title = tiet_newNote_title.text.toString(),
+            title = tiet_newNote_title.text.toString().trim(),
             message = tiet_newNote_noteContent.text.toString(),
             type = when (rg_newNote_note_type.checkedRadioButtonId) {
                 0 -> Note.VACCINE
@@ -117,6 +117,14 @@ class NewNoteActivity : AppCompatActivity() {
     inner class InsertNoteAsync : AsyncTask<Note, Unit, Boolean>() {
 
         override fun doInBackground(vararg params: Note): Boolean {
+            params[0].reminderDate?.let {
+                val calendar = Calendar.getInstance()
+                calendar.timeInMillis = it
+                if (calendar.compareTo(Calendar.getInstance()) < 1)
+                    NotificationHandler.showNotification(this@NewNoteActivity, params[0].title)
+                else
+                    NotificationHandler.scheduleNotification(this@NewNoteActivity, params[0])
+            }
             return DBHelper(this@NewNoteActivity).insertNote(params[0])
         }
 

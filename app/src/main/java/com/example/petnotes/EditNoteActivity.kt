@@ -20,7 +20,7 @@ class EditNoteActivity : AppCompatActivity() {
     }
 
     private lateinit var note: Note
-    private var reminderDate: Calendar? = null
+    private lateinit var reminderDate: Calendar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,7 +54,7 @@ class EditNoteActivity : AppCompatActivity() {
             }
         }
         tiet_editNote_date.setOnClickListener {
-            showDatePickerDialog(reminderDate ?: Calendar.getInstance())
+            showDatePickerDialog(if (reminderDate.timeInMillis == 0L) Calendar.getInstance() else reminderDate)
         }
         tiet_editNote_title.setOnFocusChangeListener { _, hasFocus ->
             if (hasFocus) {
@@ -74,7 +74,7 @@ class EditNoteActivity : AppCompatActivity() {
             R.style.Theme_MaterialComponents_Light_Dialog_MinWidth,
             DatePickerDialog.OnDateSetListener { _, year, month, day ->
                 reminderDate = Calendar.getInstance().apply { this.set(year, month, day) }
-                tiet_editNote_date.setText((String.format("%s/%s/%s", day, month, year)))
+                tiet_editNote_date.setText((String.format("%s/%s/%s", day, month + 1, year)))
             },
             calendar.get(Calendar.YEAR),
             calendar.get(Calendar.MONTH),
@@ -85,7 +85,7 @@ class EditNoteActivity : AppCompatActivity() {
     private fun getValuesFromFields(): Note {
         return Note(
             id = note.id,
-            title = tiet_editNote_title.text.toString(),
+            title = tiet_editNote_title.text.toString().trim(),
             message = tiet_editNote_noteContent.text.toString(),
             type = when (rg_editNote_note_type.checkedRadioButtonId) {
                 0 -> Note.VACCINE
@@ -95,7 +95,7 @@ class EditNoteActivity : AppCompatActivity() {
                 else -> throw Exception()
             },
             creationDate = note.creationDate,
-            reminderDate = reminderDate?.timeInMillis
+            reminderDate = reminderDate.timeInMillis
         )
     }
 
@@ -119,15 +119,15 @@ class EditNoteActivity : AppCompatActivity() {
     }
 
 
-    inner class UpdateNoteAsync : AsyncTask<Note, Unit, Boolean>() {
+    inner class UpdateNoteAsync : AsyncTask<Note, Unit, Note?>() {
 
-        override fun doInBackground(vararg params: Note): Boolean {
-            return DBHelper(this@EditNoteActivity).updateNote(params[0])
+        override fun doInBackground(vararg params: Note): Note? {
+            return if (DBHelper(this@EditNoteActivity).updateNote(params[0])) params[0] else null
         }
 
-        override fun onPostExecute(result: Boolean) {
+        override fun onPostExecute(result: Note?) {
             super.onPostExecute(result)
-            this@EditNoteActivity.onNoteUpdated()
+            this@EditNoteActivity.onNoteUpdated(result)
         }
 
     }
@@ -163,14 +163,14 @@ class EditNoteActivity : AppCompatActivity() {
         rg_editNote_note_type.clearCheck()
         (rg_editNote_note_type.getChildAt(note.type) as RadioButton).isChecked = true
         note.reminderDate?.let {
-            if (it == 0L) {
+            if (it != 0L) {
                 val calendar = Calendar.getInstance()
                 calendar.timeInMillis = it
                 tiet_editNote_date.setText(
                     String.format(
                         "%s/%s/%s",
                         calendar.get(Calendar.DAY_OF_MONTH),
-                        calendar.get(Calendar.MONTH),
+                        calendar.get(Calendar.MONTH) + 1,
                         calendar.get(Calendar.YEAR)
                     )
                 )
@@ -178,7 +178,15 @@ class EditNoteActivity : AppCompatActivity() {
         }
     }
 
-    private fun onNoteUpdated() {
+    private fun onNoteUpdated(note: Note?) {
+        note?.reminderDate?.let {
+            val calendar = Calendar.getInstance()
+            calendar.timeInMillis = it
+            if (calendar.compareTo(Calendar.getInstance()) < 1)
+                NotificationHandler.showNotification(this, note.title)
+            else
+                NotificationHandler.scheduleNotification(this, note)
+        }
         finish()
     }
 }

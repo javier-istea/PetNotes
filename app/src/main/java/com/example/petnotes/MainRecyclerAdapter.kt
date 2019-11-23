@@ -47,10 +47,10 @@ class MainRecyclerAdapter(private var notes: List<Note>, private var context: Co
             creationDate.text = (String.format(
                 "%s/%s/%s",
                 calendar.get(Calendar.DAY_OF_MONTH),
-                calendar.get(Calendar.MONTH),
+                calendar.get(Calendar.MONTH) + 1,
                 calendar.get(Calendar.YEAR)
             ))
-            if (note.reminderDate == 0L) {
+            if (note.reminderDate != 0L) {
                 notificationIcon.visibility = View.VISIBLE
             }
             type.text = context.resources.getStringArray(R.array.note_types)[note.type]
