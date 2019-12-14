@@ -23,8 +23,8 @@
                     android:layout_marginTop="32dp"
                     android:layout_marginEnd="32dp"
                     android:background="@drawable/image_border"
-                    android:padding="10dp"
                     android:contentDescription="@string/about_me_title"
+                    android:padding="10dp"
                     app:srcCompat="@drawable/pets" />
 
             <TextView

@@ -36,4 +36,23 @@
     <string name="til_editNote_title_date">Remind me on…</string>
     <string name="notification_title">Reminder</string>
     <string name="creation_date_label">Created on</string>
+    <string name="user_insertion_fail">Username already exists</string>
+    <string name="empty_error_message">This field can\'t be empty</string>
+    <string name="wrong_password">Wrong password</string>
+    <string name="user_not_found">User not found</string>
+    <string name="passwords_dont_match">Passwords don\'t match</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_tools">Tools</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_send">Send</string>
+    <string name="menu_logout">Logout</string>
 </resources>

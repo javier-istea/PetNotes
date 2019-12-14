@@ -9,10 +9,26 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
+        <activity
+                android:name=".Main2Activity"
+                android:label="@string/title_activity_main2"
+                android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+                android:name=".RegisterActivity"
+                android:screenOrientation="portrait"
+                android:theme="@style/AppTheme.NoActionBar"
+                android:windowSoftInputMode="stateVisible|adjustResize" />
+        <activity
+                android:name=".LoginActivity"
+                android:screenOrientation="portrait"
+                android:theme="@style/AppTheme.NoActionBar"
+                android:windowSoftInputMode="stateVisible|adjustResize" />
+
         <receiver
                 android:name=".broadcastreceivers.NotificationReceiver"
                 android:enabled="true"
                 android:exported="true" />
+
         <activity android:name=".AboutMeActivity" />
         <activity
                 android:name=".NewNoteActivity"

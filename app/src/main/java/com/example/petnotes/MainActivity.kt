@@ -7,33 +7,56 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.core.view.GravityCompat
 import androidx.preference.PreferenceManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.petnotes.db.DBHelper
 import com.example.petnotes.model.Note
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), ItemInteractionListener {
 
-    private lateinit var floatingActionButton: FloatingActionButton
     private lateinit var recyclerView: RecyclerView
-
     private lateinit var toolbar: Toolbar
-
+    private lateinit var toggle: ActionBarDrawerToggle
     private lateinit var prefs: SharedPreferences
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         prefs = PreferenceManager.getDefaultSharedPreferences(this)
         setContentView(R.layout.activity_main)
         setupToolbar()
+        setupDrawer()
         setupFloatingActionButton()
         setupRecycler()
         GetAllNotes().execute()
+    }
+
+    private fun setupDrawer() {
+        toggle = ActionBarDrawerToggle(
+            this,
+            drawer_layout,
+            toolbar,
+            R.string.navigation_drawer_open,
+            R.string.navigation_drawer_close
+        )
+        drawer_layout.addDrawerListener(toggle)
+        toggle.syncState()
+        nav_view.setNavigationItemSelectedListener {
+            when (it.itemId) {
+                R.id.nav_logout -> logout()
+            }
+            true
+        }
+    }
+
+    private fun logout() {
+        startActivity(Intent(this, LoginActivity::class.java))
+        finish()
     }
 
     private fun setupRecycler() {
@@ -67,8 +90,7 @@ class MainActivity : AppCompatActivity(), ItemInteractionListener {
     }
 
     private fun setupFloatingActionButton() {
-        floatingActionButton = findViewById(R.id.fab_main_new_note)
-        floatingActionButton.setOnClickListener {
+        fab_main_new_note.setOnClickListener {
             startActivity(Intent(this, NewNoteActivity::class.java))
         }
     }
@@ -151,4 +173,14 @@ class MainActivity : AppCompatActivity(), ItemInteractionListener {
         updateToolbarTitle()
         GetAllNotes().execute()
     }
+
+    override fun onBackPressed() {
+        if (drawer_layout.isDrawerOpen(GravityCompat.START)) {
+            drawer_layout.closeDrawer(GravityCompat.START)
+        } else {
+            super.onBackPressed()
+        }
+    }
+
+
 }
