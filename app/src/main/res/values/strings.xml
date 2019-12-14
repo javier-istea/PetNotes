@@ -41,18 +41,18 @@
     <string name="wrong_password">Wrong password</string>
     <string name="user_not_found">User not found</string>
     <string name="passwords_dont_match">Passwords don\'t match</string>
-    <string name="title_activity_main2">Main2Activity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
-    <string name="nav_header_desc">Navigation header</string>
 
-    <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
-    <string name="menu_tools">Tools</string>
-    <string name="menu_share">Share</string>
-    <string name="menu_send">Send</string>
     <string name="menu_logout">Logout</string>
+    <string name="tv_login_title">Login</string>
+    <string name="til_login_email">Username</string>
+    <string name="til_login_password">Password</string>
+    <string name="mb_login_submit">LOGIN</string>
+    <string name="tv_login_link_to_register">or create an account here</string>
+    <string name="tv_register_title">Register</string>
+    <string name="til_register_email_hint">Username</string>
+    <string name="til_register_password_hint">Password</string>
+    <string name="til_register_confirm_password_hint">Confirm password</string>
+    <string name="mb_register_submit">REGISTER</string>
 </resources>

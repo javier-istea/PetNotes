@@ -15,11 +15,11 @@
             android:orientation="vertical">
 
         <TextView
-                android:id="@+id/Login"
+                android:id="@+id/tv_login_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Login"
+                android:text="@string/tv_login_title"
                 android:textColor="@android:color/black"
                 android:textSize="36sp" />
 
@@ -28,7 +28,8 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:hint="Email"
+                android:layout_marginTop="@dimen/form_divider"
+                android:hint="@string/til_login_email"
                 app:counterEnabled="true"
                 app:counterMaxLength="40">
 
@@ -48,7 +49,8 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Password"
+                android:layout_marginTop="@dimen/form_divider"
+                android:hint="@string/til_login_password"
                 app:counterEnabled="true"
                 app:counterMaxLength="40"
                 app:passwordToggleEnabled="true">
@@ -69,7 +71,8 @@
                 style="@style/Widget.MaterialComponents.Button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Go!"
+                android:layout_marginTop="@dimen/form_divider"
+                android:text="@string/mb_login_submit"
                 android:textAppearance="@style/Widget.MaterialComponents.Button"
                 android:textSize="18sp" />
 
@@ -77,8 +80,9 @@
                 android:id="@+id/tv_login_link_to_register"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/form_divider"
                 android:gravity="center"
-                android:text="or create an account here"
+                android:text="@string/tv_login_link_to_register"
                 android:textColor="@color/secondaryColor" />
     </LinearLayout>
 

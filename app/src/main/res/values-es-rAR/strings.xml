@@ -34,4 +34,22 @@
     <string name="til_editNote_title_date">Recuérdame el…</string>
     <string name="notification_title">Recordatorio</string>
     <string name="creation_date_label">Creado el</string>
+    <string name="empty_error_message">Este campo no puede estar vacío</string>
+    <string name="menu_logout">Salir</string>
+    <string name="navigation_drawer_close">Cerrar</string>
+    <string name="navigation_drawer_open">Abrir</string>
+    <string name="passwords_dont_match">Las contraseñas no coinciden</string>
+    <string name="user_insertion_fail">El usuario ya existe</string>
+    <string name="user_not_found">Usuario no encontrado</string>
+    <string name="wrong_password">Contraseña equivocada</string>
+    <string name="mb_login_submit">Iniciar sesión</string>
+    <string name="tv_login_title">Iniciar sesión</string>
+    <string name="tv_login_link_to_register">o crea una cuenta acá</string>
+    <string name="til_login_password">Contraseña</string>
+    <string name="til_login_email">Nombre de usuario</string>
+    <string name="mb_register_submit">REGISTRAR</string>
+    <string name="til_register_confirm_password_hint">Confirme la contraseña</string>
+    <string name="til_register_email_hint">Nombre de usuario</string>
+    <string name="til_register_password_hint">Contraseña</string>
+    <string name="tv_register_title">Registrar</string>
 </resources>

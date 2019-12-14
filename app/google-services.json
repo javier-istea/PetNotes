@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "873807341485-1q49ol2skbqaf2r5b13i6p3ii3dd4t8j.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.petnotes",
+            "certificate_hash": "44528f20393e525f616c69692f7dfcfac005021c"
+          }
+        },
+        {
           "client_id": "873807341485-mbetoap66rcal0n1g00r32vpub76p416.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
