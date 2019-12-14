@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "873807341485",
+    "firebase_url": "https://petnotes-a104d.firebaseio.com",
+    "project_id": "petnotes-a104d",
+    "storage_bucket": "petnotes-a104d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:873807341485:android:73692789eb6cc8a1cca324",
+        "android_client_info": {
+          "package_name": "com.example.petnotes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "873807341485-mbetoap66rcal0n1g00r32vpub76p416.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.petnotes",
+            "certificate_hash": "64328fffa2ff8a9c3738cbc90e7973331f003f6d"
+          }
+        },
+        {
+          "client_id": "873807341485-rjuum279b9dnkn534i7dfrs7ogh50p8c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDiyc6fmaZhfz0YC0BVDwtT16pJOSq6CxU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "873807341485-rjuum279b9dnkn534i7dfrs7ogh50p8c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
